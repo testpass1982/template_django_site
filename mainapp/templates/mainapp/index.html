@@ -1,0 +1,13 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content  %}
+  <!-- Include background -->
+  {% include 'mainapp/includes/background-block.html' %}
+  {% comment %} <div w3-include-html="includes/background-block.html"></div> {% endcomment %}
+  <!-- End Include background -->
+  <!-- End Include content -->
+  {% include 'mainapp/includes/content.html' %}
+  {% comment %}<div w3-include-html="includes/content.html"></div> {% endcomment %}
+  <!-- End Include content -->
+{% endblock  %}

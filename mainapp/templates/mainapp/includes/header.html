@@ -1,0 +1,84 @@
+{% load static %}
+<div class="container">
+        <div class="box__items">
+                <div class="row align-items-center">
+                        <div class="col-md-6 col-lg-3 col-xl-2">
+                                <a href="{% url 'index' %}">
+                                        <img src="
+                                       {% if profile.org_logotype %}
+                                        {{ profile.org_logotype.url }}
+                                       {% else %}
+                                           https://place-hold.it/200x50
+                                       {% endif %}
+                                        " class="header__logo" alt="logotype"
+                                                title="Логотип {{ profile.org_short_name }}">
+                                </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3 col-xl-2">
+                                <div class="block__logo">
+                                        <img src="{% static '/img/logo_2.png' %}"
+                                                title="Лауреат Премии Правительства РФ в области качества 2012г" alt="">
+                                        <img src="{% static '/img/logo_3.png' %}"
+                                                title="Лауреат Премии СНГ 2013 года за достижения в области качества"
+                                                class="center__logo" alt="">
+                                        <img src="{% static '/img/logo_4.png' %}"
+                                                title="Член Международного института сварки" alt="">
+                                </div>
+
+                        </div>
+
+                        <div class="col-lg-6 col-xl-4">
+                                <div class="row">
+                                        <div class="col-6">
+                                                <div class="block__number d-inline-block">
+                                                        <div class="number">{{ profile.org_main_phone }}
+                                                        </div>
+                                                        <p class="number__text__small">
+                                                                {{profile.org_main_phone_text}}</p>
+                                                </div>
+                                        </div>
+                                        {% if profile.org_secondary_phone %}
+                                        <div class="col-6">
+                                                <div class="block__number d-inline-block">
+                                                        <div class="number">
+                                                                {{ profile.org_secondary_phone }}</div>
+                                                        <p class="number__text__small">
+                                                                {{ profile.org_main_phone_text }}</p>
+
+                                                </div>
+                                        </div>
+                                        {% endif %}
+                                </div>
+                                <div class="row">
+                                        <div class="col-7">
+                                                <button class="feedback__button mt-3">
+                                                        <a href="" class="feedback" data-toggle="modal"
+                                                                data-target="#modal-question">
+                                                                <img src="{% static '/img/icon_2.png' %}"
+                                                                        class="icon__vopros" alt="">
+                                                                Задать
+                                                                вопрос</a>
+                                                </button>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="col-xl-2">
+
+                                        <div>
+                                                <p class="adres__block"> {{ profile.org_address }}</p>
+                                                <a class="click__on__map" title="Открыть карту"
+                                                        href="{{ profile.org_address_map_link }}" target="_blank">Посмотреть на карте</a>
+                                        </div>
+
+                        </div>
+                        <div class="d-none d-xl-block col-xl-2">
+                                <div class="logo_sasv">
+                                        <img src="{% static '/img/logo_sasv.png' %}" alt="">
+                                </div>
+                        </div>
+
+                </div>
+
+        </div>
+</div>

@@ -1,0 +1,75 @@
+{% extends 'mainapp/index.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+
+    <button class="back__to__main" id="head__page">
+        <a href="{% url 'index' %}"> <img src="{% static '/img/back__arrow-01.png' %}"
+                class="arrow__back__to__main text-align-center" alt="">
+            На главную</a>
+    </button>
+
+
+    <div class="row">
+        <div class="col-xl-2">
+            <div class="header__inside__pages">Все новости</div>
+        </div>
+        <div class="col-xl-10">
+            <div class="row">
+                {% for publication in news %}
+                <div class="col-xl-3">
+                    <div class="block__news">
+                        <a href="{% url 'details' publication.pk %}" class="link__news">
+                            <div class="box__news">
+                                <p class="data__news__main">{{ publication.published_date }}</p>
+                                <p class="box__news__text">
+                                    {{ publication.title }}
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% if news.paginator.num_pages > 1 %}
+
+        <div class="row">
+            <div class="offset-6 col-6">
+                <nav aria-label="Page navigation example">
+                    <nav>
+                        <ul class="pagination float-right">
+
+                            {% if news.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page=1">&laquo; Первая</a></li>
+                            <li class="page-item"><a class="page-link"
+                                    href="?page={{ news.previous_page_number }}">Предыдущая</a></li>
+                            {% endif %}
+
+                            <li class="page-item active"><a class="page-link" href="?page={{ news.number }}">
+                                    Страница {{ news.number }} из {{ news.paginator.num_pages }}</a></li>
+
+                            {% if news.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                    href="?page={{ news.next_page_number }}">Следующая</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ news.paginator.num_pages }}">Последняя
+                                    &raquo;</a></li>
+                            {% endif %}
+
+                        </ul>
+                    </nav>
+                </nav>
+            </div>
+        </div>
+{% endif %}
+
+    <button class="back__to__main">
+        <a href="{% url 'index' %}"> <img src="{% static '/img/back__arrow-01.png' %}"
+                class="arrow__back__to__main text-align-center" alt="">
+            На главную</a>
+    </button>
+    <div class="line__otstup__inside__pages"></div>
+</div>
+{% endblock %}
