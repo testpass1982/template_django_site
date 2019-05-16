@@ -3,13 +3,37 @@ from django.urls import reverse
 from django.core.files import File
 from mainapp.models import Menu, Post, Article, PostPhoto, Tag, Category
 from mainapp.models import Contact, Document, Profile, DocumentCategory, Service
+from mainapp.models import Attestat
 from django.conf import settings
 from mixer.backend.django import mixer
 import random
 from django.conf import settings
 from django.utils import timezone
+import os, shutil
 
 # from model_mommy.recipe import Recipe, foreign_key, seq
+
+#clean upload folder
+folder = os.path.join(settings.BASE_DIR, 'media', 'upload')
+for a_file in os.listdir(folder):
+    a_file_path = os.path.join(folder, a_file)
+    try:
+        if os.path.isfile(a_file_path):
+            os.unlink(a_file_path)
+    except Exception as e:
+        print('ERROR', e)
+# import pdb; pdb.set_trace()
+
+#clean upload/media folder
+media_folder = os.path.join(settings.BASE_DIR, 'media', 'upload', 'media')
+for a_file in os.listdir(media_folder):
+    # print(a_file)
+    a_file_path = os.path.join(media_folder, a_file)
+    try:
+        if os.path.isfile(a_file_path):
+            os.unlink(a_file_path)
+    except Exception as e:
+        print('ERROR', e)
 
 images = [
     'media/01.JPG',
@@ -18,6 +42,14 @@ images = [
     'media/04.JPG',
     'media/05.JPG',
     'media/06.JPG',
+]
+
+attestats = [
+    'media/sv_1.jpg',
+    'media/sv_2.jpg',
+    'media/sv_3.jpg',
+    'media/sv_4.jpg',
+    'media/sv_5.jpg',
 ]
 
 news_titles = [
@@ -67,6 +99,16 @@ class Command(BaseCommand):
         Contact.objects.all().delete()
         Profile.objects.all().delete()
         Service.objects.all().delete()
+        Attestat.objects.all().delete()
+
+        #make Attestats
+        print('Загружаем демо-аттестаты')
+        for i in range(0, len(attestats)):
+            mixer.blend(
+                Attestat,
+                image=File(open(attestats[i], 'rb'))
+            )
+            print(' Загружен демо-аттестат {}'.format(i))
 
         #make PostPhotos
         for i in range(0, len(images)):
