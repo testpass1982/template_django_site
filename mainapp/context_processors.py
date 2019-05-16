@@ -1,5 +1,5 @@
 from .models import Document
-from .models import Profile, Chunk
+from .models import Profile, Chunk, Service
 import random
 
 def random_documents(request):
@@ -15,6 +15,6 @@ def profile_chunks(request):
     profile = Profile.objects.first()
     return {'profile': profile}
 
-def chunks(request):
-    chunks = Chunk.objects.all()
-    return chunks
+def services(request):
+    all_services = Service.objects.all().order_by('number')
+    return {'all_services': all_services}

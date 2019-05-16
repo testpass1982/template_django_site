@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand
 from django.urls import reverse
 from django.core.files import File
-from mainapp.models import Menu, Post, Article, PostPhoto, Tag, Category, DocumentCategory
-from mainapp.models import Contact, Document, Profile, DocumentCategory
+from mainapp.models import Menu, Post, Article, PostPhoto, Tag, Category
+from mainapp.models import Contact, Document, Profile, DocumentCategory, Service
 from django.conf import settings
 from mixer.backend.django import mixer
 import random
@@ -66,6 +66,7 @@ class Command(BaseCommand):
         Document.objects.all().delete()
         Contact.objects.all().delete()
         Profile.objects.all().delete()
+        Service.objects.all().delete()
 
         #make PostPhotos
         for i in range(0, len(images)):
@@ -98,6 +99,11 @@ class Command(BaseCommand):
 
         for i in range(0, len(document_categories)):
             mixer.blend(DocumentCategory, name=document_categories[i])
+            mixer.blend(Service, title=document_categories[i], html="""
+                        <hr>
+                        <p>Страница в разработке</p>
+                        <hr>
+                """)
 
         mixer.blend(
             Profile,
@@ -120,6 +126,7 @@ class Command(BaseCommand):
                                 svarka1@naks.ru""",
             org_header_phones='+7 (3842)44-14-90 <br>+7(3842)44-14-92',
             org_address='109469, г. Владимир, улица Полины Осипенко, дом 66',
+            org_address_map_link="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af0AYyonWlZv3y9KCrhIOKmz2nH5lreSu&amp;width=607&amp;height=529&amp;lang=ru_RU&amp;scroll=true",
             org_csp_code='ВВР-1ЦСП',
             org_csp_reestr_link="http://naks.ru",
             org_acsp_code='ВВР-2ГАЦ',

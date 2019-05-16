@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'mainapp.context_processors.random_documents',
                 'mainapp.context_processors.profile_chunks',
+                'mainapp.context_processors.services',
             ],
         },
     },

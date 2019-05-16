@@ -30,7 +30,7 @@
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Центр аттестации</a>
+                    aria-haspopup="true" aria-expanded="false">Центр</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{% url 'center' %}#head__page">Об организации {{ profile.org_short_name }}</a>
                     <a class="dropdown-item" href="{% link_holder 'KOMISS' %}#head__page">{% title_holder 'KOMISS' %}</a>
@@ -41,10 +41,13 @@
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Услуги</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'svarshik' %}#head__page">Специальная подготовка сварщиков <br> и специалистов сварочного производства</a>
-                    <a class="dropdown-item" href="{% url 'svarproizvodstva' %}#head__page">Аттестация сварщиков <br> и специалистов сварочного производства</a>
-                    <a class="dropdown-item" href="{% url 'atestatsvaroborud' %}#head__page">Аттестация сварочного оборудования</a>
-                    <a class="dropdown-item" href="{% url 'atestatechonlogy' %}#head__page">Аттестация технологий сварки</a>
+
+                    {% for service in all_services %}
+                    <a class="dropdown-item" href="{% url 'service' service.pk %}#head__page">
+                            {{ service.title }}
+                    </a>
+                    {% endfor %}
+
 
                   </div>
                 </li>

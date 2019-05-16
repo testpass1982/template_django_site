@@ -19,37 +19,25 @@
                 {% chunk 'about_center' %}
             {% endautoescape %}
 
-              <p class="link__inside__pages"> <a href="{% url 'doc' %}#head__page">Заявки для аттестации в нашем центре</a></p>
-              <p class="link__inside__pages"> <a href="{% url 'reestr' %}#head__page">Ресстр САСв нашего центра</a></p>
-              <p class="link__inside__pages"> <a href="{% url 'profstandard' %}#head__page">Профстандарты в области сварки</a></p>
 
         <div class="line__inside_pages"></div>
-        <p class="small__header__pages">
-         Аттестаты соответствия
-          </p>
-          <main role="main">
-              <p class="imglist d-flex">
-                  <a href="{% static '/img/img_at.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="{% static '/img/img_at.jpg' %}" class="img-fluid">
-                  </a>
-                  <a href="{% static '/img/img_at2.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="{% static '/img/img_at2.jpg' %}" class="img-fluid">
-                  </a>
-                  <a href="{% static '/img/img_at3.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="{% static '/img/img_at3.jpg' %}" class="img-fluid">
-                  </a>
-                  <a href="{% static '/img/img_at4.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="{% static '/img/img_at4.jpg' %}" class="img-fluid">
-                  </a>
-                  <a href="{% static '/img/img_at5.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="{% static '/img/img_at5.jpg' %}" class="img-fluid">
-                  </a>
-                  <a href="{% static '/img/img_at6.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="{% static '/img/img_at6.jpg' %}" class="img-fluid">
-                  </a>
+        {% if attestats %}
+            <p class="small__header__pages">
+            Аттестаты соответствия, свидетельства, сертификаты
               </p>
-          </main>
-      </div>
+              <main role="main">
+                  <p class="imglist d-flex">
+
+                      {% for att in attestats %}
+                      <a href="{{ att.image.url }}" class="img_box" data-fancybox="group1" data-type="image">
+                          <img src="{{ att.image.url }}" class="img-fluid">
+                      </a>
+                      {% endfor %}
+
+                  </p>
+              </main>
+        {% endif %}
+        </div>
 
       <div class="col-xl-2">
 

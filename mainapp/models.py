@@ -334,6 +334,24 @@ class Chunk(models.Model):
     def __str__(self):
         return self.title
 
+class Service(models.Model):
+    """class for service template"""
+    title = models.CharField(
+        u'Название услуги', max_length=64, help_text="""
+            При добавлении услуги в этот раздел автоматически
+            будет создан пункт меню в разделе "Услуги", в котором они
+            сортируются в соответствии с порядком сортировки
+        """)
+    html = RichTextUploadingField(u'Описание услуги')
+    number = models.SmallIntegerField(u'Порядок сортировки', blank=True, null=True, default=None)
+
+    class Meta:
+        verbose_name = 'Услуга'
+        verbose_name_plural = 'Услуги'
+
+    def __str__(self):
+        return self.title
+
 class Profile(models.Model):
     """class for templating organization"""
     org_logotype = models.ImageField(u'Логотип организации', upload_to='upload/', blank=True, null=True, default=None)
@@ -372,3 +390,15 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.org_short_name
+
+class Attestat(models.Model):
+    title = models.CharField(u'Название аттестата(сертификата)', max_length=60)
+    image = models.ImageField(u'Скан аттестата', upload_to="upload/")
+    number = models.SmallIntegerField(u'Порядок сортировки')
+
+    class Meta:
+        verbose_name = 'Аттестат соответствия'
+        verbose_name_plural = 'Аттестаты соответствия'
+
+    def __str__(self):
+        return self.title

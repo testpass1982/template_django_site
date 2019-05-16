@@ -68,7 +68,7 @@
                                         <div>
                                                 <p class="adres__block"> {{ profile.org_address }}</p>
                                                 <a class="click__on__map" title="Открыть карту"
-                                                        href="{{ profile.org_address_map_link }}" target="_blank">Посмотреть на карте</a>
+                                                        href="{% url 'contact' %}#map" target="_blank">Адрес на карте</a>
                                         </div>
 
                         </div>

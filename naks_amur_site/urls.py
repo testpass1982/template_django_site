@@ -24,6 +24,7 @@ urlpatterns = [
     path('', mainapp.index, name='index'),
     path('news/', mainapp.news, name='news'),
     path('details/<slug:pk>', mainapp.details, name='details'),
+    path('service/<slug:pk>', mainapp.service, name='service'),
     path('svarshik/', mainapp.svarshik, name='svarshik'),
     path('doc/', mainapp.doc, name='doc'),
     path('reestr/', mainapp.reestr, name='reestr'),
