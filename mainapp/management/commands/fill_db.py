@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.urls import reverse
 from django.core.files import File
-from mainapp.models import Menu, Post, Article, PostPhoto, Tag, Category
+from mainapp.models import Menu, Post, Article, PostPhoto, Tag, Category, Chunk
 from mainapp.models import Contact, Document, Profile, DocumentCategory, Service
 from mainapp.models import Attestat
 from django.conf import settings
@@ -29,6 +29,16 @@ media_folder = os.path.join(settings.BASE_DIR, 'media', 'upload', 'media')
 for a_file in os.listdir(media_folder):
     # print(a_file)
     a_file_path = os.path.join(media_folder, a_file)
+    try:
+        if os.path.isfile(a_file_path):
+            os.unlink(a_file_path)
+    except Exception as e:
+        print('ERROR', e)
+#clean media/documents/ folder
+documents_folder = os.path.join(settings.BASE_DIR, 'media', 'documents', 'media')
+for a_file in os.listdir(documents_folder):
+    # print(a_file)
+    a_file_path = os.path.join(documents_folder, a_file)
     try:
         if os.path.isfile(a_file_path):
             os.unlink(a_file_path)
@@ -100,17 +110,34 @@ class Command(BaseCommand):
         Profile.objects.all().delete()
         Service.objects.all().delete()
         Attestat.objects.all().delete()
+        Chunk.objects.all().delete()
+
+        #make Chunk for page "About"
+        mixer.blend(
+            Chunk,
+            title='Описание для страницы "о центре"',
+            code='about_center',
+            html="""
+                <p><span style="font-size:18px">Центр аттестации ВВР-2ГАЦ</span></p>
+                <p><span style="font-size:18px">Организация является членом Саморегулируемая организация Ассоциация &laquo;НАКС&raquo;.</span></p>
+                <p><span style="font-size:18px">Общество с ограниченной ответственностью Аттестационный центр &laquo;НАКС-Владимир&raquo; - является членом СРО Ассоциация&nbsp;&laquo;Национальное Агентство Контроля Сварки&raquo; Системы Аттестации Сварочного производства (САСв) Ростехнадзора и оказывает услуги по аттестации сварщиков и специалистов сварочного производства.</span></p>
+                <p><span style="font-size:18px">Директор Герасимова Татьяна Васильевна</span></p>
+                <p><span style="font-size:18px">Заместитель директора Лопанов Илья Юрьевич</span></p>
+                <p><span style="font-size:18px">Исполнительный директор Сазонов Сергей Феликсович</span></p>
+            """
+            )
 
         #make Attestats
-        print('Загружаем демо-аттестаты')
+        print('Загружаем демо-аттестаты...')
         for i in range(0, len(attestats)):
             mixer.blend(
                 Attestat,
                 image=File(open(attestats[i], 'rb'))
             )
-            print(' Загружен демо-аттестат {}'.format(i))
+            print(' Загружен демо-аттестат {}'.format(i+1))
 
         #make PostPhotos
+        print('Загружаем картинки...')
         for i in range(0, len(images)):
             #make Tags
             mixer.blend(Tag),
@@ -129,9 +156,14 @@ class Command(BaseCommand):
             #make Articles
             mixer.blend(Article),
             mixer.blend(Contact)
+            print('Загружена демо-картинка {}'.format(i+1))
+            print('Создана демо-статья {}'.format(i+1))
 
+        print('Загружаем демо-документы...')
         for i in range(0, len(documents)):
             mixer.blend(Document, document=File(open(documents[i], 'rb')))
+            print('Заружен демо-документ {}'.format(i+1))
+
 
         #make Menus
         for i in range(0, len(menu_urls)):
@@ -146,7 +178,7 @@ class Command(BaseCommand):
                         <p>Страница в разработке</p>
                         <hr>
                 """)
-
+        print('Создаем демо-профиль...')
         mixer.blend(
             Profile,
             org_full_name='Общество с ограниченной ответственностью "Сварка трубопроводов',
@@ -163,7 +195,7 @@ class Command(BaseCommand):
             org_main_phone="+7(925)601-14-00",
             org_main_phone_text="Многоканальный",
             org_secondary_phone="+7(925)601-14-00",
-            org_secandary_phone_text="Бухгалтерия",
+            org_secondary_phone_text="Бухгалтерия",
             org_header_emails="""svarka@naks.ru, <br>
                                 svarka1@naks.ru""",
             org_header_phones='+7 (3842)44-14-90 <br>+7(3842)44-14-92',
@@ -182,6 +214,7 @@ class Command(BaseCommand):
             org_cok_code='ЦОК-37',
             org_cok_reestr_link='http://naks.ru',
         )
+        print('Демо-профиль {} создан'.format(Profile.objects.first().org_short_name))
 
         # Category.objects.create(name=settings.ACSP_CODE)
         # Category.objects.create(name=settings.CSP_CODE)
@@ -191,4 +224,4 @@ class Command(BaseCommand):
         #     PostPhoto.objects.create(
         #         title ='image{}'.format(i),
         #         image=File(open(images[i], 'rb')))
-        print('*********fill_db_complete************')
+        print('*********fill_db_complete (демо-данные созданы)************')
