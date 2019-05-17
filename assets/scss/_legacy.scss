@@ -33,11 +33,11 @@ body {
         text-decoration: none;
         color: #000000;
         padding: 15px;
-        background-color: rgb(238, 238, 238);
+        border: 1px solid rgb(238, 238, 238);
         border-radius: 3px;
 
         &:hover {
-            background-color: rgb(233, 233, 233);
+            background-color: rgb(243, 243, 243);
         }
     }
 }
@@ -277,7 +277,7 @@ body {
 }
 
 .bg__gradient{
-    padding: 45px; 
+    padding: 65px; 
     @media screen and (max-width: 1199px) {
       padding: 25px;
     } 
@@ -509,7 +509,7 @@ body {
 }
 
 .box__service {
-    width: 380px;
+    width: 370px;
     height: 200px;
     padding: 35px;
     // width: 600px;
@@ -521,8 +521,11 @@ body {
         width: 320px;
         height: 190px;
     }
-
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1300px) {
+        width: 280px;
+        height: 190px;
+    }
+    @media screen and (max-width: 1200px) {
         width: 100%;
     }
 
@@ -534,6 +537,8 @@ body {
         margin-bottom: 15px;
         margin-top: 15px;
     }
+ 
+
 }
 
 .box__service:hover {
@@ -585,7 +590,8 @@ body {
 .box__news {
     min-height: 100px;
     padding: 25px;
-    border: 0.5px solid #eee;
+    border: 0.5px solid #1d47725d;
+    border-radius: 3px;
     // border-bottom: 1px solid #e8e8e8;
 
 
@@ -972,10 +978,11 @@ body {
 .doc__name::before {
     content: '';
     position: absolute;
-    width: 45px;
-    height: 45px;
+    width: 23px;
+    height: 31px;
+    margin-top: -5px;
     left: 0;
-    background: url(/static/img/icon__file.png) center 0 no-repeat;
+    background: url(/static/img/icon__file.svg) center 0 no-repeat;
 }
 
 .bd-sidebar {
