@@ -2,21 +2,31 @@
 <div class="container">
     <div class="background">
         <div class="bg__gradient">
-            <div class="row justify-content-center">
-                <div class="col-xl-12">
+            <div class="row">
+                <div class="col-xl-6">
                     <div class="bg__text">
-                        <p class="bg__text__head">{{ profile.org_short_name }}</p>
+                            <p class="bg__text__head">{{ profile.org_short_name }}</p>
                         <p class="bg__text__small">{{ profile.org_intro }}</p>
-                        <p class="bg__text__naks">Организация является членом <br> Саморегулируемой
-                            организации Ассоциация «НАКС»</p>
-                        <p class="naks__web">
-                            <a href="http://www.naks.ru" target="_blank"
-                                title="Национальное Агентство Контроля Сварки">www.naks.ru
-                                &nbsp | &nbsp </a>
-                            <a href="http://spks.naks.ru/news/" target="_blank"
-                                title="Совет по профессиональным квалификациям в области сварки">www.spks.naks.ru</a>
-                        </p>
-
+                        <div class="online__zayavka__button">
+                                <button class="button__zayavka" data-toggle="modal" data-target="#modal-statement">Подать
+                                    заявку</button>
+                            </div>                        
+                            <div class="info_box_text">
+                                    Организация является членом <br>
+                                    Саморегулируемая организация Ассоциация «НАКС».
+                                    <div class="naks_link">
+                                           <a href="http://www.naks.ru" target="_blank"
+                                             title="Национальное Агентство Контроля Сварки">www.naks.ru</a>
+                                           <a href="http://spks.naks.ru/news/" class="spks_link" target="_blank"
+                                             title="Совет по профессиональным квалификациям в области сварки">www.spks.naks.ru</a>
+                                         </div>
+                             </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="bg__text">                  
+                        
+                            <p class="bg_text_headline_right_column">Информация по реестрам</p>
                         {% if profile.org_csp_reestr_link %}
                         <p class="bg__text__naks">
                             Ссылка на реестр НАКС центра спецподготовки:
@@ -64,11 +74,7 @@
                         </p>
                         {% endif %}
 
-
-                        <div class="online__zayavka__button">
-                            <button class="button__zayavka" data-toggle="modal" data-target="#modal-statement">Подать
-                                заявку</button>
-                        </div>
+                      
 
                     </div>
                 </div>
