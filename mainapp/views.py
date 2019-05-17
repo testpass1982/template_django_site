@@ -45,6 +45,7 @@ def import_profile(request):
                 if profile is None:
                     profile = Profile.objects.create(org_short_name="DEMO")
                 try:
+                    #updating existing record with imported fields
                     update_from_dict(profile, import_data)
                     content.update({'profile_dict': '{}'.format(profile.__dict__)})
                     content.update({'profile': profile})
