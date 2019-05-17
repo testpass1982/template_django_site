@@ -7,15 +7,55 @@ from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post, PostPhoto, Tag, Category, Document, Article, Message, Contact
 from .models import Registry, Menu, Service, Attestat
-from .models import Staff, DocumentCategory
-from .forms import PostForm, ArticleForm, DocumentForm
+from .models import Staff, DocumentCategory, Profile
+from .forms import PostForm, ArticleForm, DocumentForm, ProfileImportForm
 from .forms import SendMessageForm, SubscribeForm, AskQuestionForm, DocumentSearchForm, SearchRegistryForm
 from .adapters import MessageModelAdapter
 from .message_tracker import MessageTracker
 from .utilites import UrlMaker
 from .registry_import import Importer, data_url
+# from django.core.files import File
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+from django.conf import settings
+
+
 # Create your views here.
 from django.conf import settings
+from .utilites import update_from_dict
+
+def import_profile(request):
+    content = {}
+    if request.method == "POST":
+        if len(request.FILES) > 0:
+            form = ProfileImportForm(request.POST, request.FILES)
+            if form.is_valid():
+                data = request.FILES.get('file')
+                file = data.readlines()
+                import_data = {}
+                for line in file:
+                    string = line.decode('utf-8')
+                    if string.startswith('#') or string.startswith('\n'):
+                        print('Пропускаем: ', string)
+                        continue
+                    splitted = string.split("::")
+                    import_data.update({splitted[0].strip(): splitted[1].strip()})
+                    print('Импортируем:', string)
+                profile = Profile.objects.first()
+                if profile is None:
+                    profile = Profile.objects.create(org_short_name="DEMO")
+                try:
+                    update_from_dict(profile, import_data)
+                    content.update({'profile_dict': '{}'.format(profile.__dict__)})
+                    content.update({'profile': profile})
+                    print('***imported***')
+                except Exception as e:
+                    print("***ERRORS***", e)
+                    content.update({'errors': e})
+        else:
+            content.update({'errors': 'Файл для загрузки не выбран'})
+        return render(request, 'mainapp/includes/profile_load.html', content)
+
 def index(request):
 
     """this is mainpage view with forms handler and adapter to messages"""
