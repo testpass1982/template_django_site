@@ -29,9 +29,13 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 @media screen and (max-width: 320px) { .center__logo { padding-left: 45px; padding-right: 45px; } }
 
-.number { font-size: 20px; }
+.number { font-size: 20px; color: #fff; }
 
 @media screen and (max-width: 1400px) { .number { font-size: 22px; } }
+
+.number_header { font-size: 20px; font-weight: 300; color: #3d4349; }
+
+@media screen and (max-width: 1400px) { .number_header { font-size: 22px; } }
 
 .adres__block { margin-bottom: 5px; font-size: 14px; }
 
@@ -56,13 +60,15 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 @media screen and (max-width: 992px) { .feedback { padding: 10px 25px; margin-top: 10px; border-radius: 3px; justify-content: center; }
   .feedback a { color: #fff; } }
 
-.text__adres { font-weight: 400; font-size: 14px; color: #000; margin-bottom: 0; margin-top: 25px; }
+.text__adres { font-weight: 400; font-size: 14px; color: #fff; margin-bottom: 0; margin-top: 25px; }
 
 .click__on__map { margin-top: -15px; font-size: 12px; font-weight: 450; }
 
 @media screen and (max-width: 576px) { .click__on__map { font-size: 14px; } }
 
-.number__footer { font-size: 28px; font-weight: 300; margin-bottom: 0; }
+.number__footer { font-size: 28px; font-weight: 300; margin-bottom: 0; color: #fff; }
+
+.consultation__text { color: #fff; }
 
 .feedback__button__mob { padding: 0; background-color: transparent; border: none; margin-top: 5px; }
 
@@ -92,11 +98,9 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .enter__system::before { content: ''; position: absolute; width: 35px; height: 15px; margin-left: -35px; margin-top: 5px; background: url(/static/img/enter.png) center 0 no-repeat; }
 
-.background { background: url(/static/img/background.png) no-repeat; background-size: cover; }
+.background { background: url(/static/img/background.jpg) no-repeat; background-size: cover; padding: 85px; }
 
-.bg__gradient { padding: 65px; }
-
-@media screen and (max-width: 1199px) { .bg__gradient { padding: 25px; } }
+@media screen and (max-width: 1199px) { .background { padding: 25px; } }
 
 .bg__text__head { font-size: 34px; font-weight: 550; color: #fff; }
 
@@ -106,11 +110,15 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 @media screen and (max-width: 1199px) { .bg_text_headline_right_column { margin-top: 35px; margin-bottom: 20px; } }
 
+.bg__text_right_column { background-color: #003c6965; padding: 35px; }
+
 .bg__text__small { font-size: 18px; font-weight: 450; color: #fff; line-height: 1.8; }
 
 @media screen and (max-width: 320px) { .bg__text__small { font-size: 14px; } }
 
 .bg__text__naks { font-size: 16px; font-weight: 500; color: #fff; }
+
+.bg__text__naks a { text-decoration: none; color: #fff; }
 
 .bg__line { border-bottom: 1px solid #3eb5f1; width: 50px; vertical-align: middle; text-align: center; margin: auto; margin-bottom: 15px; margin-top: 15px; }
 
@@ -148,7 +156,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .icon__vopros { margin-top: -4px; margin-left: -5px; }
 
-.header__name { color: #1d4872; font-size: 28px; font-weight: 500; margin-top: 60px; }
+.header__name { color: #1d4872; font-size: 28px; font-weight: 500; padding: 60px 0px; }
 
 .text__medium { font-size: 18px; font-weight: 400; color: #000; margin-bottom: 15px; }
 
@@ -166,27 +174,17 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .link__read__more a { text-decoration: none; font-size: 16px; color: #0066ac; }
 
-.button__services a { text-decoration: none; }
+.box_service { padding: 25px; background-color: rgba(245, 245, 245, 0.37); }
 
-.box__serv a { font-size: 20px; color: #fff; }
+.box_service a { text-decoration: none; }
 
-.box__service { width: 370px; height: 200px; padding: 35px; background-color: #1d4872; margin-bottom: 35px; margin-top: 35px; }
+.box_service:hover { background-color: #86bbd883; transition: 0.3s; }
 
-@media screen and (max-width: 1700px) { .box__service { width: 320px; height: 190px; } }
+@media screen and (max-width: 1200px) { .box_service { margin-bottom: 35px; } }
 
-@media screen and (max-width: 1300px) { .box__service { width: 280px; height: 190px; } }
+.name_service { color: #3d4349; font-size: 20px; font-weight: 550; }
 
-@media screen and (max-width: 1200px) { .box__service { width: 100%; } }
-
-@media screen and (max-width: 576px) { .box__service { width: 100%; } }
-
-@media screen and (max-width: 768px) { .box__service { margin-bottom: 15px; margin-top: 15px; } }
-
-.box__service:hover { background-color: #143b63; -moz-transition: all 0.2s ease-out; -o-transition: all 0.2s ease-out; -webkit-transition: all 0.2s ease-out; -webkit-transform: scale(1.01); -moz-transform: scale(1.01); -o-transform: scale(1.01); }
-
-.services__name { font-size: 22px; font-weight: 400; color: #ffffff; text-decoration: none; margin: 0; }
-
-@media screen and (max-width: 360px) { .services__name { font-size: 18px; text-transform: uppercase; } }
+.short_description { font-weight: 400; font-style: normal; color: #6b6b6b; font-size: 14px; line-height: 1.7; letter-spacing: 0px; }
 
 .link__read__news { margin-top: -30px; margin-bottom: 25px; }
 
@@ -196,7 +194,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .block__news a { text-decoration: none; }
 
-.box__news { min-height: 100px; padding: 25px; border: 0.5px solid #1d47725d; border-radius: 3px; }
+.box__news { min-height: 100px; padding: 25px; border: 0.5px solid #ececec5d; border-radius: 3px; }
 
 .box__news:hover { box-shadow: 0 2px 18px rgba(27, 27, 27, 0.03); }
 
@@ -244,25 +242,31 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .journal__text__small { font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 0; }
 
-.naks__web { color: #fff; text-decoration: underline; }
+.naks_web { color: #fff; border: 0.5px solid #fff; border-radius: 25px; padding: 7px 15px; }
 
-.naks__web__footer a { text-decoration: none; color: #505050; }
+.naks_web:hover { background-color: rgba(255, 255, 255, 0.171); transition: 0.3s; }
 
-.naks__web__footer a:hover { color: #0087e0; }
+.naks_web a { text-decoration: none; }
+
+.naks_web__footer a { text-decoration: none; color: #505050; }
+
+.naks_web__footer a:hover { color: #0087e0; }
 
 .naks__web__footer { font-size: 14px; font-weight: 500; margin-bottom: 10px; }
+
+.naks__web__footer a { color: #fff; }
 
 .logo_sasv { text-align: right; }
 
 @media screen and (max-width: 768px) { .logo_sasv { margin-top: 15px; margin-bottom: 15px; text-align: center; } }
 
-.footer__naks__text { margin-bottom: 5px; }
+.footer__naks__text { margin-bottom: 5px; color: #fff; }
 
-.footer__block { background-color: #fafafa; padding: 35px; border-top: 5px solid #1d4772; }
+.footer__block { background-color: #25292c; padding: 35px; }
 
 @media screen and (max-width: 992px) { .footer__block { padding: 15px; text-align: center; } }
 
-.political__footer { color: #000; }
+.political__footer { color: #fff; }
 
 @media screen and (max-width: 320px) { .political__footer { display: none; margin-top: 15px; } }
 
@@ -270,7 +274,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 @media screen and (max-width: 320px) { .line__footer__small { display: none; } }
 
-.prava__footer { font-size: 12px; color: #9c9c9c; margin-bottom: 5px; margin-top: 15px; }
+.prava__footer { font-size: 12px; color: #fff; margin-bottom: 5px; margin-top: 15px; }
 
 @media screen and (max-width: 320px) { .prava__footer { display: block; text-align: center; margin-top: 25px; } }
 
@@ -317,7 +321,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .bd-sidebar { position: sticky; top: 4rem; z-index: 1000; height: calc(30vh - 4rem); }
 
-.header__political { font-size: 18px; text-transform: uppercase; font-weight: 400; color: #000; margin-top: 15px; }
+.header__political { font-size: 18px; text-transform: uppercase; font-weight: 400; color: #fff; margin-top: 15px; }
 
 @media screen and (max-width: 1199px) { .header__political { margin-top: 15px; } }
 
@@ -571,7 +575,7 @@ input[type=file] { border: none; }
 
 .menu__navbar .navbar .nav-item .nav-link { padding: 0; color: #ffffff; }
 
-.menu__navbar .navbar .nav-item .nav-link:hover { color: #5993ce; transition: 0.3s; }
+.menu__navbar .navbar .nav-item .nav-link:hover { color: #f6ae2d; transition: 0.3s; }
 
 .menu__navbar .navbar-expand-lg .navbar-nav .nav-link { margin-right: 35px; }
 

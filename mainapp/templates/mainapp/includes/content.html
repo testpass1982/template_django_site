@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-xl-4">
                 <div class="header__name">
-                    <p class="">Наши услуги</p>
+                    <p class="">Услуги центра</p>
                 </div>
             </div>
         </div>
@@ -12,10 +12,16 @@
 
             {% for service in all_services %}
             <div class="col-md-6 col-xl-3">
-                <div class="button__services">
+                <div class="box_service">
                     <a href="{% url 'service' service.pk %}#head__page">
-                        <div class="box__service">
-                            <p class="services__name">{{ service.title }}</p>
+                        <p class="name_service">{{ service.title }}</p>
+
+                        <div class="box_service_text_info">
+                            <p class="short_description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris
+                            </p>
                         </div>
                     </a>
                 </div>
