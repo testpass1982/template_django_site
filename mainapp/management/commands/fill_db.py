@@ -1,3 +1,4 @@
+#core import file
 from django.core.management.base import BaseCommand
 from django.urls import reverse
 from django.core.files import File
@@ -34,6 +35,7 @@ for a_file in os.listdir(media_folder):
             os.unlink(a_file_path)
     except Exception as e:
         print('ERROR', e)
+
 #clean media/documents/ folder
 documents_folder = os.path.join(settings.BASE_DIR, 'media', 'documents', 'media')
 for a_file in os.listdir(documents_folder):
@@ -80,6 +82,7 @@ menu_urls = [
     'ABOUT_US', 'ASSP', 'ASSV', 'ATTSP', 'ATTST', 'COK', 'CONTACT', 'DOKZAYAV',
     'INFO', 'OBLD', 'OBLDATT', 'PROFST', 'REGISTRY', 'RKNK', 'SPECSVAR', 'VSENOVOSTI', 'ZAYAV', 'SOSTAV_KOMISS'
 ]
+
 menu_urls_titles = [
     'О центре', 'Аттестация сварщиков и специалистов', 'Аттестация сварщиков',
     'Аттестация специалистов', 'Аттестация сварочных технологий', 'Центр оценки квалификации',
@@ -159,10 +162,6 @@ class Command(BaseCommand):
             print('Загружена демо-картинка {}'.format(i+1))
             print('Создана демо-статья {}'.format(i+1))
 
-        print('Загружаем демо-документы...')
-        for i in range(0, len(documents)):
-            mixer.blend(Document, document=File(open(documents[i], 'rb')))
-            print('Заружен демо-документ {}'.format(i+1))
 
 
         #make Menus
@@ -178,6 +177,20 @@ class Command(BaseCommand):
                         <p>Страница в разработке</p>
                         <hr>
                 """)
+
+        print('Загружаем демо-документы...')
+        for i in range(0, len(documents)):
+            mixer.blend(
+                Document,
+                document=File(open(documents[i], 'rb')),
+                category=DocumentCategory.objects.get(
+                    pk=random.choice(
+                        [category.pk for category in DocumentCategory.objects.all()]
+                        ))
+            )
+            print('Заружен демо-документ {}'.format(i+1))
+
+
         print('Создаем демо-профиль...')
         mixer.blend(
             Profile,

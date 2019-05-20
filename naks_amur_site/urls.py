@@ -18,8 +18,10 @@ from django.urls import path, include
 import mainapp.views as mainapp
 from django.conf.urls.static import static
 from django.conf import settings
+# import django.contrib.auth.urls
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('', mainapp.index, name='index'),
     path('news/', mainapp.news, name='news'),
@@ -35,6 +37,7 @@ urlpatterns = [
     path('contact/', mainapp.contact, name='contact'),
     path('center/', mainapp.center, name='center'),
     path('profstandard/', mainapp.profstandard, name='profstandard'),
+    path('import_profile/', mainapp.import_profile, name='import_proflie'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 

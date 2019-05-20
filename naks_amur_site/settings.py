@@ -71,6 +71,7 @@ TEMPLATES = [
                 'mainapp.context_processors.random_documents',
                 'mainapp.context_processors.profile_chunks',
                 'mainapp.context_processors.services',
+                'mainapp.context_processors.profile_import',
             ],
         },
     },

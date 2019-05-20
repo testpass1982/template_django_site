@@ -17,11 +17,13 @@
       {% for cat in categories %}
       <h3>{{ cat.name }}</h3>
       {% for doc in documents %}
-      <a href="{{ doc.document.url }}" download="">
-        <div class="doc__content">
-          <p class="doc__name">{{ doc.title }}</p>
-        </div>
-      </a>
+        {% if doc.category == cat %}
+        <a href="{{ doc.document.url }}" download="">
+          <div class="doc__content">
+            <p class="doc__name">{{ doc.title }}</p>
+          </div>
+        </a>
+        {% endif %}
       {% endfor %}
       {% endfor %}
     </div>
