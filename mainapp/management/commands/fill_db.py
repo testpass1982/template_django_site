@@ -1,3 +1,4 @@
+#core import file
 from django.core.management.base import BaseCommand
 from django.urls import reverse
 from django.core.files import File
