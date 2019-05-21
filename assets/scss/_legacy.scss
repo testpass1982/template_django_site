@@ -110,6 +110,23 @@ body {
     }
 }
 
+.enter_system_edo::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 0;
+    margin-top: 5px;
+    background: url(/static/img/enter_system.png) center 0 no-repeat;
+  }
+  
+  .enter_system_link{
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    margin-left: 25px;
+  }
+
 .adres__block {
     margin-bottom: 5px;
     font-size: 14px;
@@ -362,7 +379,7 @@ body {
 }
 
 .button__zayavka {
-    background-color: #2c5c8b;
+    background-color: rgb(0,152,219);
     border: none;
     border-radius: 3px;
     color: #fff;
@@ -373,8 +390,9 @@ body {
     cursor: pointer;
 
     &:hover {
-        background-color: #285786;
-        transition: 0.2s;
+        background-color: rgb(0,152,219);
+
+        transition: width 0.5s cubic-bezier(.17,.67,.42,.65) 0.1s;
     }
 
     &:active {
@@ -469,7 +487,7 @@ body {
     color: #1d4872;
     font-size: 28px;
     font-weight: 500;
-    padding: 60px 0px;
+    padding: 60px 0px 25px;
 }
 
 .text__medium {
@@ -614,9 +632,9 @@ body {
 
 .box__news__text {
     color: #03274b;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.5;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.8;
     margin-bottom: 0;
 }
 
@@ -766,27 +784,26 @@ body {
 
 // Footer block
 
+.bg__text__naks a{
+    color: #fbb52f;
+}
+
 .naks_web {
     color: #fff;
-    border: 0.5px solid #fff;
     border-radius: 25px;
-    padding: 7px 15px;
-
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.171);
-        transition: 0.3s;
-    }
-
-    a {
+    a{
         text-decoration: none;
     }
-
+    @media screen and (max-width: 1100px) {
+        border: 0.5px solid #fff;
+        padding: 7px 15px;
+        line-height: 1.9;      
+    }
 }
 
 .naks_web__footer a {
     text-decoration: none;
     color: #505050;
-
     &:hover {
         color: #0087e0;
     }
@@ -819,7 +836,7 @@ a{
 
 .footer__block {
     background-color:  #25292c;
-    padding: 35px;
+    padding: 55px 0px 55px;
 
     @media screen and (max-width: 992px) {
         padding: 15px;
