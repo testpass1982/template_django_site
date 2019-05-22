@@ -15,7 +15,6 @@
                 <div class="box_service">
                     <a href="{% url 'service' service.pk %}#head__page">
                         <p class="name_service">{{ service.title }}</p>
-
                         <div class="box_service_text_info">
                             <p class="short_description">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -49,10 +48,16 @@
                 <div class="block__news">
                     <a href="{% url 'details' post.pk %}#head__page" class="link__news">
                         <div class="box__news">
-                            <p class="data__news__main">{{ post.published_date }}</p>
-                            <p class="box__news__text">
+                            <p class="box__news__headline">
                                 {{ post.title }}
                             </p>
+                            <p class="box__news__text">
+                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
+                                McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
+                                the more obscure Latin words, consectetur,
+                            </p>
+                            <p class="data__news__main">{{ post.published_date|date:"d M. Y"}}</p>
                         </div>
                     </a>
                 </div>

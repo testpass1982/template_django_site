@@ -4,9 +4,7 @@ body {
     font-family: "Avenir Next Cyr", sans-serif;
     font-size: 12px;
     line-height: 1.5;
-    background-color: #fff;
-    opacity: 0;
-    transition: .4s;
+    background-color: #fff;   
 }
 
 
@@ -209,6 +207,7 @@ body {
 
     @media screen and (max-width: 576px) {
         font-size: 14px;
+        margin-bottom: 15px;
     }
 }
 
@@ -337,7 +336,7 @@ body {
 }
 
 .bg__text_right_column{
-    background-color: #003c6965;
+    background-color: #005abb71;
     padding: 35px;
 }
 
@@ -556,21 +555,22 @@ body {
 //     -o-transform: scale(1.01);
 // }
 
+
+
 .box_service {
     padding: 25px;
     background-color: rgba(245, 245, 245, 0.37);
+    border-bottom: 4px solid #fbb42f4b;
  a{
      text-decoration: none;
  }
     &:hover{
-        background-color: #86bbd883;
+        background-color: #86bbd852;
         transition: 0.3s;
-    }
-    
+    }    
     @media screen and (max-width: 1200px) {
        margin-bottom: 35px;
-    }   
-  
+    }     
 }
 
 .name_service {
@@ -617,6 +617,7 @@ body {
     padding: 25px;
     border: 0.5px solid #ececec5d;
     border-radius: 3px;
+    background-color: rgba(238, 238, 238, 0.171);
     // border-bottom: 1px solid #e8e8e8;
 
 
@@ -628,13 +629,24 @@ body {
 .data__news__main {
     color: rgb(168, 168, 168);
     text-decoration: none;
+    margin-bottom: 0px;
+    padding: 15px 0px 0px;
+}
+
+.box__news__headline {
+    color: #303030;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 0;
+    padding: 0px 0px 10px;
 }
 
 .box__news__text {
-    color: #03274b;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.8;
+    color: #303030;
+    font-size: 14px;
+    font-weight: 350;
+    line-height: 1.6;
     margin-bottom: 0;
 }
 
@@ -642,9 +654,8 @@ body {
 // Информация
 // Naks block
 
-.info__block:hover {
+.info__block{
     box-shadow: 0 2px 18px rgba(27, 27, 27, 0.03);
-    transition: 0.2s;
     margin-top: -5px;
 }
 
@@ -819,9 +830,8 @@ a{
 
 }
 
-.logo_sasv {
+.additional_logo {
     text-align: right;
-
     @media screen and (max-width: 768px) {
         margin-top: 15px;
         margin-bottom: 15px;

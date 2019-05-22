@@ -5,26 +5,13 @@
                         <div class="col-md-6 col-lg-3 col-xl-2">
                                 <a href="{% url 'index' %}">
                                         <img src="
-                                       {% if profile.org_logotype %}
-                                        {{ profile.org_logotype.url }}
-                                       {% else %}
-                                           https://place-hold.it/200x50
-                                       {% endif %}
-                                        " class="header__logo" alt="logotype"
-                                                title="Логотип {{ profile.org_short_name }}">
+{% if profile.org_logotype %}
+{{ profile.org_logotype.url }}
+{% else %}
+https://place-hold.it/200x50
+{% endif %}
+" class="header__logo" alt="logotype" title="Логотип {{ profile.org_short_name }}">
                                 </a>
-                        </div>
-                        <div class="col-md-6 col-lg-3 col-xl-2">
-                                <div class="block__logo">
-                                        <img src="{% static '/img/logo_2.png' %}"
-                                                title="Лауреат Премии Правительства РФ в области качества 2012г" alt="">
-                                        <img src="{% static '/img/logo_3.png' %}"
-                                                title="Лауреат Премии СНГ 2013 года за достижения в области качества"
-                                                class="center__logo" alt="">
-                                        <img src="{% static '/img/logo_4.png' %}"
-                                                title="Член Международного института сварки" alt="">
-                                </div>
-
                         </div>
 
                         <div class="col-lg-6 col-xl-4">
@@ -49,21 +36,31 @@
                                         </div>
                                         {% endif %}
                                 </div>
-                         
+
                         </div>
 
                         <div class="col-xl-2">
-
-                                        <div>
-                                                <p class="adres__block"> {{ profile.org_address }}</p>
-                                                <a data-fancybox="" data-options="" class="click__on__map" title="Открыть карту" title="Открыть карту"
-                                                href="https://www.google.com/maps/place/%D0%9E%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8C%D1%81%D0%BA%D0%B0%D1%8F+%D1%83%D0%BB.,+18,+%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D1%8B%D0%B9,+%D0%90%D0%BC%D1%83%D1%80%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB.,+676455/@51.3417218,128.1527328,18.79z/data=!4m5!3m4!1s0x5e8fb1df037f3039:0x944fd1bcb4262947!8m2!3d51.3418119!4d128.1530995" target="_blank">Показать на карте</a>
-                                        </div>
-                                        
-
+                                <div>
+                                        <p class="adres__block"> {{ profile.org_address }}</p>
+                                        <a data-fancybox="" data-options="" class="click__on__map" title="Открыть карту"
+                                                title="Открыть карту"
+                                                href="https://www.google.com/maps/place/%D0%9E%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8C%D1%81%D0%BA%D0%B0%D1%8F+%D1%83%D0%BB.,+18,+%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D1%8B%D0%B9,+%D0%90%D0%BC%D1%83%D1%80%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB.,+676455/@51.3416946,128.1515009,17z/data=!4m5!3m4!1s0x5e8fb1df037f3039:0x944fd1bcb4262947!8m2!3d51.3418119!4d128.1530995"
+                                                target="_blank">Показать на карте</a>
+                                </div>
                         </div>
-                        <div class="d-none d-xl-block col-xl-2">
-                                <div class="logo_sasv">
+                        <div class="d-none d-xl-block col-xl-3">                     
+                                <div class="additional_logo">                           
+                                                <img src="{% static '/img/logo_2.png' %}"
+                                                title="Лауреат Премии Правительства РФ в области качества 2012г" alt="">
+                                        <img src="{% static '/img/logo_3.png' %}"
+                                                title="Лауреат Премии СНГ 2013 года за достижения в области качества"
+                                                class="center__logo" alt="">
+                                        <img src="{% static '/img/logo_4.png' %}"
+                                                title="Член Международного института сварки" alt="">
+                                </div>
+                        </div>
+                        <div class="d-none d-xl-block col-xl-1">                     
+                                <div class="additional_logo">                           
                                         <img src="{% static '/img/logo_sasv.png' %}" alt="">
                                 </div>
                         </div>

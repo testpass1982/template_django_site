@@ -1,5 +1,5 @@
 @charset "UTF-8";
-body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height: 1.5; background-color: #fff; opacity: 0; transition: .4s; }
+body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height: 1.5; background-color: #fff; }
 
 @media (min-width: 360px) { .container { max-width: 1600px; } }
 
@@ -68,7 +68,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .click__on__map { margin-top: -15px; font-size: 12px; font-weight: 450; }
 
-@media screen and (max-width: 576px) { .click__on__map { font-size: 14px; } }
+@media screen and (max-width: 576px) { .click__on__map { font-size: 14px; margin-bottom: 15px; } }
 
 .number__footer { font-size: 28px; font-weight: 300; margin-bottom: 0; color: #fff; }
 
@@ -114,7 +114,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 @media screen and (max-width: 1199px) { .bg_text_headline_right_column { margin-top: 35px; margin-bottom: 20px; } }
 
-.bg__text_right_column { background-color: #003c6965; padding: 35px; }
+.bg__text_right_column { background-color: #005abb71; padding: 35px; }
 
 .bg__text__small { font-size: 18px; font-weight: 450; color: #fff; line-height: 1.8; }
 
@@ -178,11 +178,11 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .link__read__more a { text-decoration: none; font-size: 16px; color: #0066ac; }
 
-.box_service { padding: 25px; background-color: rgba(245, 245, 245, 0.37); }
+.box_service { padding: 25px; background-color: rgba(245, 245, 245, 0.37); border-bottom: 4px solid #fbb42f4b; }
 
 .box_service a { text-decoration: none; }
 
-.box_service:hover { background-color: #86bbd883; transition: 0.3s; }
+.box_service:hover { background-color: #86bbd852; transition: 0.3s; }
 
 @media screen and (max-width: 1200px) { .box_service { margin-bottom: 35px; } }
 
@@ -198,15 +198,17 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .block__news a { text-decoration: none; }
 
-.box__news { min-height: 100px; padding: 25px; border: 0.5px solid #ececec5d; border-radius: 3px; }
+.box__news { min-height: 100px; padding: 25px; border: 0.5px solid #ececec5d; border-radius: 3px; background-color: rgba(238, 238, 238, 0.171); }
 
 .box__news:hover { box-shadow: 0 2px 18px rgba(27, 27, 27, 0.03); }
 
-.data__news__main { color: #a8a8a8; text-decoration: none; }
+.data__news__main { color: #a8a8a8; text-decoration: none; margin-bottom: 0px; padding: 15px 0px 0px; }
 
-.box__news__text { color: #03274b; font-size: 16px; font-weight: 400; line-height: 1.8; margin-bottom: 0; }
+.box__news__headline { color: #303030; font-size: 24px; font-weight: 400; line-height: 1.8; margin-bottom: 0; padding: 0px 0px 10px; }
 
-.info__block:hover { box-shadow: 0 2px 18px rgba(27, 27, 27, 0.03); transition: 0.2s; margin-top: -5px; }
+.box__news__text { color: #303030; font-size: 14px; font-weight: 350; line-height: 1.6; margin-bottom: 0; }
+
+.info__block { box-shadow: 0 2px 18px rgba(27, 27, 27, 0.03); margin-top: -5px; }
 
 .naks__img__box { background: url(/static/img/naks_logo.png) no-repeat; background-size: cover; border-radius: 3px; width: 200px; height: 142px; margin: 0 auto; }
 
@@ -262,9 +264,9 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .naks__web__footer a { color: #fff; }
 
-.logo_sasv { text-align: right; }
+.additional_logo { text-align: right; }
 
-@media screen and (max-width: 768px) { .logo_sasv { margin-top: 15px; margin-bottom: 15px; text-align: center; } }
+@media screen and (max-width: 768px) { .additional_logo { margin-top: 15px; margin-bottom: 15px; text-align: center; } }
 
 .footer__naks__text { margin-bottom: 5px; color: #fff; }
 
