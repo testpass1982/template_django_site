@@ -342,6 +342,7 @@ class Service(models.Model):
             будет создан пункт меню в разделе "Услуги", в котором они
             сортируются в соответствии с порядком сортировки
         """)
+    description = models.CharField(u'Краткое описание', max_length=100)
     html = RichTextUploadingField(u'Описание услуги')
     number = models.SmallIntegerField(u'Порядок сортировки', blank=True, null=True, default=None)
 

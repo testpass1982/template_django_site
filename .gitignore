@@ -101,3 +101,5 @@ static/ckeditor/
 static/admin/
 *.sqlite3
 node_modules/
+style.css
+style.css.map
