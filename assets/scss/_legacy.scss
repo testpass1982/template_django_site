@@ -306,9 +306,23 @@ body {
     background: url(/static/img/background.jpg) no-repeat;
     background-size: cover;
     padding: 85px;
+    position: relative;
+
     @media screen and (max-width: 1199px) {
         padding: 25px;
-    }
+    };
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(to bottom right,#122c3b,#ffffff);
+        opacity: .4;
+
+    };
+};
     // :after {
     //     position: absolute;
     //     content: "";
@@ -318,7 +332,7 @@ body {
     //     width: 100%;
     //     background: linear-gradient(transparent);
     //   }
-}
+
 
 
 

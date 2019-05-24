@@ -102,9 +102,11 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .enter__system::before { content: ''; position: absolute; width: 35px; height: 15px; margin-left: -35px; margin-top: 5px; background: url(/static/img/enter.png) center 0 no-repeat; }
 
-.background { background: url(/static/img/background.jpg) no-repeat; background-size: cover; padding: 85px; }
+.background { background: url(/static/img/background.jpg) no-repeat; background-size: cover; padding: 85px; position: relative; }
 
 @media screen and (max-width: 1199px) { .background { padding: 25px; } }
+
+.background:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-image: linear-gradient(to bottom right, #122c3b, #ffffff); opacity: .4; }
 
 .bg__text__head { font-size: 34px; font-weight: 550; color: #fff; }
 
